@@ -1,0 +1,88 @@
+.counter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: 2px solid #64dafe;
+    border-radius: 5px;
+}
+
+.count {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 93px;
+    margin: 5px;
+    border: 2px solid #64dafe;
+    border-radius: 5px;
+    color: #2a2c36;
+    background-color: #64dafe;
+    font-family: "Bookman Old Style", serif;
+}
+
+.red{
+    color:red
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    margin-bottom: 5px;
+    padding: 5px;
+    border: 2px solid #64dafe;
+    border-radius: 5px;
+}
+
+.buttonInc {
+    margin-right: 5px;
+    color: #2a2c36;
+    border: 2px solid #64dafe;
+    border-radius: 2px;
+    background-color: #64dafe;
+    font-family: "Times New Roman", serif;
+}
+
+.buttonInc:active {
+    color: #64dafe;
+    border: 2px solid #2a2c36;
+    border-radius: 2px;
+    background-color: #2a2c36;
+}
+
+.buttonRes {
+    margin-left: 5px;
+    color: #2a2c36;
+    border: 2px solid #64dafe;
+    border-radius: 2px;
+    background-color: #64dafe;
+    font-family: "Times New Roman", serif;
+}
+
+.buttonRes:active {
+    color: #64dafe;
+    border: 2px solid #2a2c36;
+    border-radius: 2px;
+    background-color: #2a2c36;
+}
+
+.disableButtonInc{
+    margin-right: 5px;
+    color: #2a2c36;
+    border: 2px solid #64dafe;
+    border-radius: 2px;
+    background-color: #64dafe;
+    font-family: "Times New Roman", serif;
+    opacity: 50%;
+}
+
+.disableButtonRes{
+    margin-left: 5px;
+    color: #2a2c36;
+    border: 2px solid #64dafe;
+    border-radius: 2px;
+    background-color: #64dafe;
+    font-family: "Times New Roman", serif;
+    opacity: 50%;
+}
