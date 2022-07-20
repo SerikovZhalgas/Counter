@@ -5,14 +5,18 @@
     flex-direction: column;
     border: 2px solid #64dafe;
     border-radius: 5px;
+    padding: 5px;
+    gap: 5px;
+    width: 300px;
+    height: 200px;
 }
 
 .count {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 93px;
-    margin: 5px;
+    width: 100%;
+    font-size: 56px;
     border: 2px solid #64dafe;
     border-radius: 5px;
     color: #2a2c36;
@@ -20,69 +24,38 @@
     font-family: "Bookman Old Style", serif;
 }
 
-.red{
-    color:red
+.red {
+    color: red
 }
 
-.button {
+.buttons {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: row;
-    margin-bottom: 5px;
-    padding: 5px;
     border: 2px solid #64dafe;
     border-radius: 5px;
+    gap: 5px;
+    width: 100%;
 }
 
-.buttonInc {
-    margin-right: 5px;
+.button {
     color: #2a2c36;
     border: 2px solid #64dafe;
     border-radius: 2px;
     background-color: #64dafe;
     font-family: "Times New Roman", serif;
+    font-size: 36px;
 }
 
-.buttonInc:active {
+.button:active {
     color: #64dafe;
     border: 2px solid #2a2c36;
     border-radius: 2px;
     background-color: #2a2c36;
 }
 
-.buttonRes {
-    margin-left: 5px;
-    color: #2a2c36;
-    border: 2px solid #64dafe;
-    border-radius: 2px;
-    background-color: #64dafe;
-    font-family: "Times New Roman", serif;
-}
-
-.buttonRes:active {
-    color: #64dafe;
-    border: 2px solid #2a2c36;
-    border-radius: 2px;
-    background-color: #2a2c36;
-}
-
-.disableButtonInc{
-    margin-right: 5px;
-    color: #2a2c36;
-    border: 2px solid #64dafe;
-    border-radius: 2px;
-    background-color: #64dafe;
-    font-family: "Times New Roman", serif;
+.button:disabled {
     opacity: 50%;
 }
 
-.disableButtonRes{
-    margin-left: 5px;
-    color: #2a2c36;
-    border: 2px solid #64dafe;
-    border-radius: 2px;
-    background-color: #64dafe;
-    font-family: "Times New Roman", serif;
-    opacity: 50%;
-}

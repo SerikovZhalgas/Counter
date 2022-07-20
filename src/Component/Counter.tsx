@@ -1,26 +1,23 @@
-import React, {useState} from 'react';
+import React from 'react';
 import s from './Counter.module.css';
 
-const Counter = () => {
-    const [count, setCount] = useState(0)
+export type CounterType = {
+    count: number
+    onClickInc:()=>void
+    onClickRes:()=>void
+    min: number
+    max: number
+}
 
-    const onClickInc = () => {
-        setCount(count + 1)
-    }
-    const onClickRes = () => {
-        setCount(0)
-    }
-
-    const classNameCount = count === 5 ? `${s.count} ${s.red}` : s.count
-    const classNameInc = count === 5 ? s.disableButtonInc : s.buttonInc
-    const classNameReset = count === 0 ? s.disableButtonRes : s.buttonRes
+const Counter = (props:CounterType) => {
+    const classNameCount =  `${s.count} ${props.count === props.max ? s.red : ''}`
 
     return (
         <div className={s.counter}>
-            <div className={classNameCount}>{count}</div>
-            <div className={s.button}>
-                <button className={classNameInc} onClick={onClickInc} disabled={count===5}>inc</button>
-                <button className={classNameReset} onClick={onClickRes} disabled={count===0}>reset</button>
+            <div className={classNameCount}>{props.count}</div>
+            <div className={s.buttons}>
+                <button className={s.button} onClick={props.onClickInc} disabled={props.count===props.max}>inc</button>
+                <button className={s.button} onClick={props.onClickRes} disabled={props.count===props.min}>reset</button>
             </div>
         </div>
     );
