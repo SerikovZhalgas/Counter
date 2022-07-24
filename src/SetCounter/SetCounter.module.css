@@ -59,15 +59,3 @@
     opacity: 50%;
 }
 
-.error{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    font-size: 56px;
-    border: 2px solid #64dafe;
-    border-radius: 5px;
-    color: #2a2c36;
-    background-color: #64dafe;
-    font-family: "Bookman Old Style", serif;
-}
