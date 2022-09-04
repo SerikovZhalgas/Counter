@@ -1,15 +1,20 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import s from './App.module.css';
 import Counter from "./Component/Counter";
 import SetCounter from "./SetCounter/SetCounter";
+import {useDispatch, useSelector} from "react-redux";
+import {AppRootStateType} from "./redux/store";
+import {setCountAC, setErrorAC, setMaxValueAC, setStartValueAC, setVauleSetButtonAC} from "./redux/counterReducer";
 
 function App() {
 
-    const [count, setCount] = useState<number>(0)
-    const [maxValue, setMaxValue]=useState<number>(5)
-    const [startValue, setStartValue]=useState<number>(0)
-    const [vauleSetButton, setVauleSetButton] = useState<boolean>(true)
-    const [error, setError] = useState<boolean>(false)
+    const count = useSelector<AppRootStateType, number>(state => state.counter.count)
+    const maxValue = useSelector<AppRootStateType, number>(state => state.counter.maxValue)
+    const startValue = useSelector<AppRootStateType, number>(state => state.counter.startValue)
+    const vauleSetButton = useSelector<AppRootStateType, boolean>(state => state.counter.vauleSetButton)
+    const error = useSelector<AppRootStateType, boolean>(state => state.counter.error)
+
+    const dispatch = useDispatch()
 
     useEffect(()=>{
         const maxValueAsString = localStorage.getItem('maxValue')
@@ -17,27 +22,27 @@ function App() {
         if(maxValueAsString && startValueAsString){
             const newMaxValue = JSON.parse(maxValueAsString)
             const newStartValue = JSON.parse(startValueAsString)
-            setCount(newStartValue)
-            setMaxValue(newMaxValue)
-            setStartValue(newStartValue)
+            dispatch(setCountAC(newStartValue))
+            dispatch(setMaxValueAC(newMaxValue))
+            dispatch(setStartValueAC(newStartValue))
         }
     },[])
 
     const onClickInc = () => {
-        setCount(count + 1)
+        dispatch(setCountAC(count + 1))
     }
     const onClickRes = () => {
-        setCount(startValue)
+        dispatch(setCountAC(startValue))
     }
     const onClickSet = () => {
-        setCount(startValue)
-        setVauleSetButton(true)
+        dispatch(setCountAC(startValue))
+        dispatch(setVauleSetButtonAC(true))
         localStorage.setItem('maxValue',JSON.stringify(maxValue))
         localStorage.setItem('startValue',JSON.stringify(startValue))
     }
     const incorrectValueCallBack = () => {
-        setVauleSetButton(true)
-        setError(true)
+        dispatch(setVauleSetButtonAC(true))
+        dispatch(setErrorAC(true))
     }
 
     return (
@@ -45,14 +50,10 @@ function App() {
             <SetCounter
                 maxValue={maxValue}
                 startValue={startValue}
-                setMaxValue={setMaxValue}
-                setStartValue={setStartValue}
                 onClickSet={onClickSet}
-                setVauleSetButton={setVauleSetButton}
                 vauleSetButton={vauleSetButton}
                 incorrectValueCallBack={incorrectValueCallBack}
                 error={error}
-                setError={setError}
             />
             <Counter
                 count={count}
