@@ -19,17 +19,21 @@ function App() {
     useEffect(()=>{
         const maxValueAsString = localStorage.getItem('maxValue')
         const startValueAsString = localStorage.getItem('startValue')
-        if(maxValueAsString && startValueAsString){
+        const countValueAsString = localStorage.getItem('countValue')
+        if(maxValueAsString && startValueAsString && countValueAsString){
             const newMaxValue = JSON.parse(maxValueAsString)
             const newStartValue = JSON.parse(startValueAsString)
+            const newCountValue = JSON.parse(countValueAsString)
             dispatch(setCountAC(newStartValue))
             dispatch(setMaxValueAC(newMaxValue))
             dispatch(setStartValueAC(newStartValue))
+            dispatch(setCountAC(newCountValue))
         }
     },[])
 
     const onClickInc = () => {
         dispatch(setCountAC(count + 1))
+        localStorage.setItem('countValue', JSON.stringify(count + 1))
     }
     const onClickRes = () => {
         dispatch(setCountAC(startValue))
